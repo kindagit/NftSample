@@ -1,0 +1,28 @@
+{
+  "tokens": [
+    {
+      "id": 0,
+      "description": "Test Guppy",
+      "image": "https://0",
+      "name": "TGP"
+    },
+    {
+      "id": 1,
+      "description": "Test Guppy",
+      "image": "https://1",
+      "name": "TGP1"
+    },
+    {
+      "id": 2,
+      "description": "Test Guppy",
+      "image": "https://2",
+      "name": "TGP2"
+    },
+    {
+      "id": 3,
+      "description": "Test Guppy",
+      "image": "https://3",
+      "name": "TGP3"
+    }
+  ]
+}

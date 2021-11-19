@@ -1,0 +1,30 @@
+# : comments
+
+# no .a files
+#*.a
+2Unity/*.vsconfig
+2Unity/*.csproj
+2Unity/*.sln
+2Unity/InitCodeMarker
+
+# but do track lib.a, even though you're ignoring .a files above
+#!lib.a
+
+# only ignore the TODO file in the current directory, not subdir/TODO
+#/TODO
+
+# ignore all files in the build/ directory
+bin/
+obj/
+.vs/
+2Unity/Library/
+2Unity/Temp/
+2Unity/Logs/
+2Unity/TestBytesProtocol/
+2Unity/UserSettings/
+
+# ignore doc/notes.txt, but not doc/server/arch.txt
+#doc/*.txt
+
+# ignore all .pdf files in the doc/ directory
+#doc/**/*.pdf
