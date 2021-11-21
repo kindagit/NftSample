@@ -27,7 +27,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return new ERC721PresetMinterPauserAutoIdService(web3, receipt.ContractAddress);
         }
 
-        protected Nethereum.Web3.Web3 Web3{ get; }
+        protected Nethereum.Web3.Web3 Web3 { get; }
 
         public ContractHandler ContractHandler { get; }
 
@@ -42,7 +42,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<DEFAULT_ADMIN_ROLEFunction, byte[]>(dEFAULT_ADMIN_ROLEFunction, blockParameter);
         }
 
-        
+
         public Task<byte[]> DEFAULT_ADMIN_ROLEQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<DEFAULT_ADMIN_ROLEFunction, byte[]>(null, blockParameter);
@@ -53,7 +53,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<MINTER_ROLEFunction, byte[]>(mINTER_ROLEFunction, blockParameter);
         }
 
-        
+
         public Task<byte[]> MINTER_ROLEQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<MINTER_ROLEFunction, byte[]>(null, blockParameter);
@@ -64,7 +64,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<PAUSER_ROLEFunction, byte[]>(pAUSER_ROLEFunction, blockParameter);
         }
 
-        
+
         public Task<byte[]> PAUSER_ROLEQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<PAUSER_ROLEFunction, byte[]>(null, blockParameter);
@@ -72,30 +72,30 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
 
         public Task<string> ApproveRequestAsync(ApproveFunction approveFunction)
         {
-             return ContractHandler.SendRequestAsync(approveFunction);
+            return ContractHandler.SendRequestAsync(approveFunction);
         }
 
         public Task<TransactionReceipt> ApproveRequestAndWaitForReceiptAsync(ApproveFunction approveFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(approveFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(approveFunction, cancellationToken);
         }
 
         public Task<string> ApproveRequestAsync(string to, BigInteger tokenId)
         {
             var approveFunction = new ApproveFunction();
-                approveFunction.To = to;
-                approveFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAsync(approveFunction);
+            approveFunction.To = to;
+            approveFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAsync(approveFunction);
         }
 
         public Task<TransactionReceipt> ApproveRequestAndWaitForReceiptAsync(string to, BigInteger tokenId, CancellationTokenSource cancellationToken = null)
         {
             var approveFunction = new ApproveFunction();
-                approveFunction.To = to;
-                approveFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(approveFunction, cancellationToken);
+            approveFunction.To = to;
+            approveFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(approveFunction, cancellationToken);
         }
 
         public Task<BigInteger> BalanceOfQueryAsync(BalanceOfFunction balanceOfFunction, BlockParameter blockParameter = null)
@@ -103,12 +103,12 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<BalanceOfFunction, BigInteger>(balanceOfFunction, blockParameter);
         }
 
-        
+
         public Task<BigInteger> BalanceOfQueryAsync(string owner, BlockParameter blockParameter = null)
         {
             var balanceOfFunction = new BalanceOfFunction();
-                balanceOfFunction.Owner = owner;
-            
+            balanceOfFunction.Owner = owner;
+
             return ContractHandler.QueryAsync<BalanceOfFunction, BigInteger>(balanceOfFunction, blockParameter);
         }
 
@@ -117,7 +117,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<BaseURIFunction, string>(baseURIFunction, blockParameter);
         }
 
-        
+
         public Task<string> BaseURIQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<BaseURIFunction, string>(null, blockParameter);
@@ -125,28 +125,28 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
 
         public Task<string> BurnRequestAsync(BurnFunction burnFunction)
         {
-             return ContractHandler.SendRequestAsync(burnFunction);
+            return ContractHandler.SendRequestAsync(burnFunction);
         }
 
         public Task<TransactionReceipt> BurnRequestAndWaitForReceiptAsync(BurnFunction burnFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(burnFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(burnFunction, cancellationToken);
         }
 
         public Task<string> BurnRequestAsync(BigInteger tokenId)
         {
             var burnFunction = new BurnFunction();
-                burnFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAsync(burnFunction);
+            burnFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAsync(burnFunction);
         }
 
         public Task<TransactionReceipt> BurnRequestAndWaitForReceiptAsync(BigInteger tokenId, CancellationTokenSource cancellationToken = null)
         {
             var burnFunction = new BurnFunction();
-                burnFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(burnFunction, cancellationToken);
+            burnFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(burnFunction, cancellationToken);
         }
 
         public Task<string> GetApprovedQueryAsync(GetApprovedFunction getApprovedFunction, BlockParameter blockParameter = null)
@@ -154,12 +154,12 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<GetApprovedFunction, string>(getApprovedFunction, blockParameter);
         }
 
-        
+
         public Task<string> GetApprovedQueryAsync(BigInteger tokenId, BlockParameter blockParameter = null)
         {
             var getApprovedFunction = new GetApprovedFunction();
-                getApprovedFunction.TokenId = tokenId;
-            
+            getApprovedFunction.TokenId = tokenId;
+
             return ContractHandler.QueryAsync<GetApprovedFunction, string>(getApprovedFunction, blockParameter);
         }
 
@@ -168,12 +168,12 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<GetRoleAdminFunction, byte[]>(getRoleAdminFunction, blockParameter);
         }
 
-        
+
         public Task<byte[]> GetRoleAdminQueryAsync(byte[] role, BlockParameter blockParameter = null)
         {
             var getRoleAdminFunction = new GetRoleAdminFunction();
-                getRoleAdminFunction.Role = role;
-            
+            getRoleAdminFunction.Role = role;
+
             return ContractHandler.QueryAsync<GetRoleAdminFunction, byte[]>(getRoleAdminFunction, blockParameter);
         }
 
@@ -182,13 +182,13 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<GetRoleMemberFunction, string>(getRoleMemberFunction, blockParameter);
         }
 
-        
+
         public Task<string> GetRoleMemberQueryAsync(byte[] role, BigInteger index, BlockParameter blockParameter = null)
         {
             var getRoleMemberFunction = new GetRoleMemberFunction();
-                getRoleMemberFunction.Role = role;
-                getRoleMemberFunction.Index = index;
-            
+            getRoleMemberFunction.Role = role;
+            getRoleMemberFunction.Index = index;
+
             return ContractHandler.QueryAsync<GetRoleMemberFunction, string>(getRoleMemberFunction, blockParameter);
         }
 
@@ -197,41 +197,41 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<GetRoleMemberCountFunction, BigInteger>(getRoleMemberCountFunction, blockParameter);
         }
 
-        
+
         public Task<BigInteger> GetRoleMemberCountQueryAsync(byte[] role, BlockParameter blockParameter = null)
         {
             var getRoleMemberCountFunction = new GetRoleMemberCountFunction();
-                getRoleMemberCountFunction.Role = role;
-            
+            getRoleMemberCountFunction.Role = role;
+
             return ContractHandler.QueryAsync<GetRoleMemberCountFunction, BigInteger>(getRoleMemberCountFunction, blockParameter);
         }
 
         public Task<string> GrantRoleRequestAsync(GrantRoleFunction grantRoleFunction)
         {
-             return ContractHandler.SendRequestAsync(grantRoleFunction);
+            return ContractHandler.SendRequestAsync(grantRoleFunction);
         }
 
         public Task<TransactionReceipt> GrantRoleRequestAndWaitForReceiptAsync(GrantRoleFunction grantRoleFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(grantRoleFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(grantRoleFunction, cancellationToken);
         }
 
         public Task<string> GrantRoleRequestAsync(byte[] role, string account)
         {
             var grantRoleFunction = new GrantRoleFunction();
-                grantRoleFunction.Role = role;
-                grantRoleFunction.Account = account;
-            
-             return ContractHandler.SendRequestAsync(grantRoleFunction);
+            grantRoleFunction.Role = role;
+            grantRoleFunction.Account = account;
+
+            return ContractHandler.SendRequestAsync(grantRoleFunction);
         }
 
         public Task<TransactionReceipt> GrantRoleRequestAndWaitForReceiptAsync(byte[] role, string account, CancellationTokenSource cancellationToken = null)
         {
             var grantRoleFunction = new GrantRoleFunction();
-                grantRoleFunction.Role = role;
-                grantRoleFunction.Account = account;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(grantRoleFunction, cancellationToken);
+            grantRoleFunction.Role = role;
+            grantRoleFunction.Account = account;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(grantRoleFunction, cancellationToken);
         }
 
         public Task<bool> HasRoleQueryAsync(HasRoleFunction hasRoleFunction, BlockParameter blockParameter = null)
@@ -239,13 +239,13 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<HasRoleFunction, bool>(hasRoleFunction, blockParameter);
         }
 
-        
+
         public Task<bool> HasRoleQueryAsync(byte[] role, string account, BlockParameter blockParameter = null)
         {
             var hasRoleFunction = new HasRoleFunction();
-                hasRoleFunction.Role = role;
-                hasRoleFunction.Account = account;
-            
+            hasRoleFunction.Role = role;
+            hasRoleFunction.Account = account;
+
             return ContractHandler.QueryAsync<HasRoleFunction, bool>(hasRoleFunction, blockParameter);
         }
 
@@ -254,40 +254,53 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<IsApprovedForAllFunction, bool>(isApprovedForAllFunction, blockParameter);
         }
 
-        
+
         public Task<bool> IsApprovedForAllQueryAsync(string owner, string @operator, BlockParameter blockParameter = null)
         {
             var isApprovedForAllFunction = new IsApprovedForAllFunction();
-                isApprovedForAllFunction.Owner = owner;
-                isApprovedForAllFunction.Operator = @operator;
-            
+            isApprovedForAllFunction.Owner = owner;
+            isApprovedForAllFunction.Operator = @operator;
+
             return ContractHandler.QueryAsync<IsApprovedForAllFunction, bool>(isApprovedForAllFunction, blockParameter);
         }
 
         public Task<string> MintRequestAsync(MintFunction mintFunction)
         {
-             return ContractHandler.SendRequestAsync(mintFunction);
+            return ContractHandler.SendRequestAsync(mintFunction);
         }
 
         public Task<TransactionReceipt> MintRequestAndWaitForReceiptAsync(MintFunction mintFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(mintFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(mintFunction, cancellationToken);
         }
 
-        public Task<string> MintRequestAsync(string to)
+        public Task<string> MintRequestAsync(string to, string uri)
         {
-            var mintFunction = new MintFunction();
-                mintFunction.To = to;
-            
-             return ContractHandler.SendRequestAsync(mintFunction);
+            var safeMintFunction = new SafeMintFunction()
+            {
+                To = to,
+                TokenURI = uri
+            };
+            return ContractHandler.SendRequestAsync(safeMintFunction);
         }
 
         public Task<TransactionReceipt> MintRequestAndWaitForReceiptAsync(string to, CancellationTokenSource cancellationToken = null)
         {
-            var mintFunction = new MintFunction();
-                mintFunction.To = to;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(mintFunction, cancellationToken);
+            var safeMintFunction = new MintFunction()
+            {
+                To = to,
+            };
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(safeMintFunction, cancellationToken);
+        }
+
+        public Task<TransactionReceipt> SafeMintRequestAndWaitForReceiptAsync(string to, string uri, CancellationTokenSource cancellationToken = null)
+        {
+            var safeMintFunction = new SafeMintFunction()
+            {
+                To = to,
+                TokenURI = uri
+            };
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(safeMintFunction, cancellationToken);
         }
 
         public Task<string> NameQueryAsync(NameFunction nameFunction, BlockParameter blockParameter = null)
@@ -295,7 +308,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<NameFunction, string>(nameFunction, blockParameter);
         }
 
-        
+
         public Task<string> NameQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<NameFunction, string>(null, blockParameter);
@@ -306,33 +319,33 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<OwnerOfFunction, string>(ownerOfFunction, blockParameter);
         }
 
-        
+
         public Task<string> OwnerOfQueryAsync(BigInteger tokenId, BlockParameter blockParameter = null)
         {
             var ownerOfFunction = new OwnerOfFunction();
-                ownerOfFunction.TokenId = tokenId;
-            
+            ownerOfFunction.TokenId = tokenId;
+
             return ContractHandler.QueryAsync<OwnerOfFunction, string>(ownerOfFunction, blockParameter);
         }
 
         public Task<string> PauseRequestAsync(PauseFunction pauseFunction)
         {
-             return ContractHandler.SendRequestAsync(pauseFunction);
+            return ContractHandler.SendRequestAsync(pauseFunction);
         }
 
         public Task<string> PauseRequestAsync()
         {
-             return ContractHandler.SendRequestAsync<PauseFunction>();
+            return ContractHandler.SendRequestAsync<PauseFunction>();
         }
 
         public Task<TransactionReceipt> PauseRequestAndWaitForReceiptAsync(PauseFunction pauseFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(pauseFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(pauseFunction, cancellationToken);
         }
 
         public Task<TransactionReceipt> PauseRequestAndWaitForReceiptAsync(CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync<PauseFunction>(null, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync<PauseFunction>(null, cancellationToken);
         }
 
         public Task<bool> PausedQueryAsync(PausedFunction pausedFunction, BlockParameter blockParameter = null)
@@ -340,7 +353,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<PausedFunction, bool>(pausedFunction, blockParameter);
         }
 
-        
+
         public Task<bool> PausedQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<PausedFunction, bool>(null, blockParameter);
@@ -348,148 +361,148 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
 
         public Task<string> RenounceRoleRequestAsync(RenounceRoleFunction renounceRoleFunction)
         {
-             return ContractHandler.SendRequestAsync(renounceRoleFunction);
+            return ContractHandler.SendRequestAsync(renounceRoleFunction);
         }
 
         public Task<TransactionReceipt> RenounceRoleRequestAndWaitForReceiptAsync(RenounceRoleFunction renounceRoleFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(renounceRoleFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(renounceRoleFunction, cancellationToken);
         }
 
         public Task<string> RenounceRoleRequestAsync(byte[] role, string account)
         {
             var renounceRoleFunction = new RenounceRoleFunction();
-                renounceRoleFunction.Role = role;
-                renounceRoleFunction.Account = account;
-            
-             return ContractHandler.SendRequestAsync(renounceRoleFunction);
+            renounceRoleFunction.Role = role;
+            renounceRoleFunction.Account = account;
+
+            return ContractHandler.SendRequestAsync(renounceRoleFunction);
         }
 
         public Task<TransactionReceipt> RenounceRoleRequestAndWaitForReceiptAsync(byte[] role, string account, CancellationTokenSource cancellationToken = null)
         {
             var renounceRoleFunction = new RenounceRoleFunction();
-                renounceRoleFunction.Role = role;
-                renounceRoleFunction.Account = account;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(renounceRoleFunction, cancellationToken);
+            renounceRoleFunction.Role = role;
+            renounceRoleFunction.Account = account;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(renounceRoleFunction, cancellationToken);
         }
 
         public Task<string> RevokeRoleRequestAsync(RevokeRoleFunction revokeRoleFunction)
         {
-             return ContractHandler.SendRequestAsync(revokeRoleFunction);
+            return ContractHandler.SendRequestAsync(revokeRoleFunction);
         }
 
         public Task<TransactionReceipt> RevokeRoleRequestAndWaitForReceiptAsync(RevokeRoleFunction revokeRoleFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(revokeRoleFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(revokeRoleFunction, cancellationToken);
         }
 
         public Task<string> RevokeRoleRequestAsync(byte[] role, string account)
         {
             var revokeRoleFunction = new RevokeRoleFunction();
-                revokeRoleFunction.Role = role;
-                revokeRoleFunction.Account = account;
-            
-             return ContractHandler.SendRequestAsync(revokeRoleFunction);
+            revokeRoleFunction.Role = role;
+            revokeRoleFunction.Account = account;
+
+            return ContractHandler.SendRequestAsync(revokeRoleFunction);
         }
 
         public Task<TransactionReceipt> RevokeRoleRequestAndWaitForReceiptAsync(byte[] role, string account, CancellationTokenSource cancellationToken = null)
         {
             var revokeRoleFunction = new RevokeRoleFunction();
-                revokeRoleFunction.Role = role;
-                revokeRoleFunction.Account = account;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(revokeRoleFunction, cancellationToken);
+            revokeRoleFunction.Role = role;
+            revokeRoleFunction.Account = account;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(revokeRoleFunction, cancellationToken);
         }
 
         public Task<string> SafeTransferFromRequestAsync(SafeTransferFromFunction safeTransferFromFunction)
         {
-             return ContractHandler.SendRequestAsync(safeTransferFromFunction);
+            return ContractHandler.SendRequestAsync(safeTransferFromFunction);
         }
 
         public Task<TransactionReceipt> SafeTransferFromRequestAndWaitForReceiptAsync(SafeTransferFromFunction safeTransferFromFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFromFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFromFunction, cancellationToken);
         }
 
         public Task<string> SafeTransferFromRequestAsync(string from, string to, BigInteger tokenId)
         {
             var safeTransferFromFunction = new SafeTransferFromFunction();
-                safeTransferFromFunction.From = from;
-                safeTransferFromFunction.To = to;
-                safeTransferFromFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAsync(safeTransferFromFunction);
+            safeTransferFromFunction.From = from;
+            safeTransferFromFunction.To = to;
+            safeTransferFromFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAsync(safeTransferFromFunction);
         }
 
         public Task<TransactionReceipt> SafeTransferFromRequestAndWaitForReceiptAsync(string from, string to, BigInteger tokenId, CancellationTokenSource cancellationToken = null)
         {
             var safeTransferFromFunction = new SafeTransferFromFunction();
-                safeTransferFromFunction.From = from;
-                safeTransferFromFunction.To = to;
-                safeTransferFromFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFromFunction, cancellationToken);
+            safeTransferFromFunction.From = from;
+            safeTransferFromFunction.To = to;
+            safeTransferFromFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFromFunction, cancellationToken);
         }
 
         public Task<string> SafeTransferFromRequestAsync(SafeTransferFrom1Function safeTransferFrom1Function)
         {
-             return ContractHandler.SendRequestAsync(safeTransferFrom1Function);
+            return ContractHandler.SendRequestAsync(safeTransferFrom1Function);
         }
 
         public Task<TransactionReceipt> SafeTransferFromRequestAndWaitForReceiptAsync(SafeTransferFrom1Function safeTransferFrom1Function, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFrom1Function, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFrom1Function, cancellationToken);
         }
 
         public Task<string> SafeTransferFromRequestAsync(string from, string to, BigInteger tokenId, byte[] data)
         {
             var safeTransferFrom1Function = new SafeTransferFrom1Function();
-                safeTransferFrom1Function.From = from;
-                safeTransferFrom1Function.To = to;
-                safeTransferFrom1Function.TokenId = tokenId;
-                safeTransferFrom1Function.Data = data;
-            
-             return ContractHandler.SendRequestAsync(safeTransferFrom1Function);
+            safeTransferFrom1Function.From = from;
+            safeTransferFrom1Function.To = to;
+            safeTransferFrom1Function.TokenId = tokenId;
+            safeTransferFrom1Function.Data = data;
+
+            return ContractHandler.SendRequestAsync(safeTransferFrom1Function);
         }
 
         public Task<TransactionReceipt> SafeTransferFromRequestAndWaitForReceiptAsync(string from, string to, BigInteger tokenId, byte[] data, CancellationTokenSource cancellationToken = null)
         {
             var safeTransferFrom1Function = new SafeTransferFrom1Function();
-                safeTransferFrom1Function.From = from;
-                safeTransferFrom1Function.To = to;
-                safeTransferFrom1Function.TokenId = tokenId;
-                safeTransferFrom1Function.Data = data;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFrom1Function, cancellationToken);
+            safeTransferFrom1Function.From = from;
+            safeTransferFrom1Function.To = to;
+            safeTransferFrom1Function.TokenId = tokenId;
+            safeTransferFrom1Function.Data = data;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(safeTransferFrom1Function, cancellationToken);
         }
 
         public Task<string> SetApprovalForAllRequestAsync(SetApprovalForAllFunction setApprovalForAllFunction)
         {
-             return ContractHandler.SendRequestAsync(setApprovalForAllFunction);
+            return ContractHandler.SendRequestAsync(setApprovalForAllFunction);
         }
 
         public Task<TransactionReceipt> SetApprovalForAllRequestAndWaitForReceiptAsync(SetApprovalForAllFunction setApprovalForAllFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(setApprovalForAllFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(setApprovalForAllFunction, cancellationToken);
         }
 
         public Task<string> SetApprovalForAllRequestAsync(string @operator, bool approved)
         {
             var setApprovalForAllFunction = new SetApprovalForAllFunction();
-                setApprovalForAllFunction.Operator = @operator;
-                setApprovalForAllFunction.Approved = approved;
-            
-             return ContractHandler.SendRequestAsync(setApprovalForAllFunction);
+            setApprovalForAllFunction.Operator = @operator;
+            setApprovalForAllFunction.Approved = approved;
+
+            return ContractHandler.SendRequestAsync(setApprovalForAllFunction);
         }
 
         public Task<TransactionReceipt> SetApprovalForAllRequestAndWaitForReceiptAsync(string @operator, bool approved, CancellationTokenSource cancellationToken = null)
         {
             var setApprovalForAllFunction = new SetApprovalForAllFunction();
-                setApprovalForAllFunction.Operator = @operator;
-                setApprovalForAllFunction.Approved = approved;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(setApprovalForAllFunction, cancellationToken);
+            setApprovalForAllFunction.Operator = @operator;
+            setApprovalForAllFunction.Approved = approved;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(setApprovalForAllFunction, cancellationToken);
         }
 
         public Task<bool> SupportsInterfaceQueryAsync(SupportsInterfaceFunction supportsInterfaceFunction, BlockParameter blockParameter = null)
@@ -497,12 +510,12 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<SupportsInterfaceFunction, bool>(supportsInterfaceFunction, blockParameter);
         }
 
-        
+
         public Task<bool> SupportsInterfaceQueryAsync(byte[] interfaceId, BlockParameter blockParameter = null)
         {
             var supportsInterfaceFunction = new SupportsInterfaceFunction();
-                supportsInterfaceFunction.InterfaceId = interfaceId;
-            
+            supportsInterfaceFunction.InterfaceId = interfaceId;
+
             return ContractHandler.QueryAsync<SupportsInterfaceFunction, bool>(supportsInterfaceFunction, blockParameter);
         }
 
@@ -511,7 +524,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<SymbolFunction, string>(symbolFunction, blockParameter);
         }
 
-        
+
         public Task<string> SymbolQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<SymbolFunction, string>(null, blockParameter);
@@ -522,12 +535,12 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<TokenByIndexFunction, BigInteger>(tokenByIndexFunction, blockParameter);
         }
 
-        
+
         public Task<BigInteger> TokenByIndexQueryAsync(BigInteger index, BlockParameter blockParameter = null)
         {
             var tokenByIndexFunction = new TokenByIndexFunction();
-                tokenByIndexFunction.Index = index;
-            
+            tokenByIndexFunction.Index = index;
+
             return ContractHandler.QueryAsync<TokenByIndexFunction, BigInteger>(tokenByIndexFunction, blockParameter);
         }
 
@@ -536,13 +549,13 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<TokenOfOwnerByIndexFunction, BigInteger>(tokenOfOwnerByIndexFunction, blockParameter);
         }
 
-        
+
         public Task<BigInteger> TokenOfOwnerByIndexQueryAsync(string owner, BigInteger index, BlockParameter blockParameter = null)
         {
             var tokenOfOwnerByIndexFunction = new TokenOfOwnerByIndexFunction();
-                tokenOfOwnerByIndexFunction.Owner = owner;
-                tokenOfOwnerByIndexFunction.Index = index;
-            
+            tokenOfOwnerByIndexFunction.Owner = owner;
+            tokenOfOwnerByIndexFunction.Index = index;
+
             return ContractHandler.QueryAsync<TokenOfOwnerByIndexFunction, BigInteger>(tokenOfOwnerByIndexFunction, blockParameter);
         }
 
@@ -551,12 +564,12 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<TokenURIFunction, string>(tokenURIFunction, blockParameter);
         }
 
-        
+
         public Task<string> TokenURIQueryAsync(BigInteger tokenId, BlockParameter blockParameter = null)
         {
             var tokenURIFunction = new TokenURIFunction();
-                tokenURIFunction.TokenId = tokenId;
-            
+            tokenURIFunction.TokenId = tokenId;
+
             return ContractHandler.QueryAsync<TokenURIFunction, string>(tokenURIFunction, blockParameter);
         }
 
@@ -565,7 +578,7 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<TotalSupplyFunction, BigInteger>(totalSupplyFunction, blockParameter);
         }
 
-        
+
         public Task<BigInteger> TotalSupplyQueryAsync(BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<TotalSupplyFunction, BigInteger>(null, blockParameter);
@@ -573,52 +586,52 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
 
         public Task<string> TransferFromRequestAsync(TransferFromFunction transferFromFunction)
         {
-             return ContractHandler.SendRequestAsync(transferFromFunction);
+            return ContractHandler.SendRequestAsync(transferFromFunction);
         }
 
         public Task<TransactionReceipt> TransferFromRequestAndWaitForReceiptAsync(TransferFromFunction transferFromFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(transferFromFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(transferFromFunction, cancellationToken);
         }
 
         public Task<string> TransferFromRequestAsync(string from, string to, BigInteger tokenId)
         {
             var transferFromFunction = new TransferFromFunction();
-                transferFromFunction.From = from;
-                transferFromFunction.To = to;
-                transferFromFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAsync(transferFromFunction);
+            transferFromFunction.From = from;
+            transferFromFunction.To = to;
+            transferFromFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAsync(transferFromFunction);
         }
 
         public Task<TransactionReceipt> TransferFromRequestAndWaitForReceiptAsync(string from, string to, BigInteger tokenId, CancellationTokenSource cancellationToken = null)
         {
             var transferFromFunction = new TransferFromFunction();
-                transferFromFunction.From = from;
-                transferFromFunction.To = to;
-                transferFromFunction.TokenId = tokenId;
-            
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(transferFromFunction, cancellationToken);
+            transferFromFunction.From = from;
+            transferFromFunction.To = to;
+            transferFromFunction.TokenId = tokenId;
+
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(transferFromFunction, cancellationToken);
         }
 
         public Task<string> UnpauseRequestAsync(UnpauseFunction unpauseFunction)
         {
-             return ContractHandler.SendRequestAsync(unpauseFunction);
+            return ContractHandler.SendRequestAsync(unpauseFunction);
         }
 
         public Task<string> UnpauseRequestAsync()
         {
-             return ContractHandler.SendRequestAsync<UnpauseFunction>();
+            return ContractHandler.SendRequestAsync<UnpauseFunction>();
         }
 
         public Task<TransactionReceipt> UnpauseRequestAndWaitForReceiptAsync(UnpauseFunction unpauseFunction, CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync(unpauseFunction, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(unpauseFunction, cancellationToken);
         }
 
         public Task<TransactionReceipt> UnpauseRequestAndWaitForReceiptAsync(CancellationTokenSource cancellationToken = null)
         {
-             return ContractHandler.SendRequestAndWaitForReceiptAsync<UnpauseFunction>(null, cancellationToken);
+            return ContractHandler.SendRequestAndWaitForReceiptAsync<UnpauseFunction>(null, cancellationToken);
         }
     }
 }

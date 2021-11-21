@@ -29,8 +29,8 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId.Contrac
         public virtual string Name { get; set; }
         [Parameter("string", "symbol", 2)]
         public virtual string Symbol { get; set; }
-        [Parameter("string", "baseURI", 3)]
-        public virtual string BaseURI { get; set; }
+        //[Parameter("string", "baseURI", 3)]
+        //public virtual string BaseURI { get; set; }
     }
 
     public partial class DEFAULT_ADMIN_ROLEFunction : DEFAULT_ADMIN_ROLEFunctionBase { }
@@ -163,6 +163,17 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId.Contrac
         public virtual string Owner { get; set; }
         [Parameter("address", "operator", 2)]
         public virtual string Operator { get; set; }
+    }
+
+    public partial class SafeMintFunction : SafeMintFunctionBase { }
+
+    [Function("safeMint")]
+    public class SafeMintFunctionBase : FunctionMessage
+    {
+        [Parameter("address", "to", 1)]
+        public virtual string To { get; set; }
+        [Parameter("string", "uri", 2)]
+        public virtual string TokenURI { get; set; }
     }
 
     public partial class MintFunction : MintFunctionBase { }

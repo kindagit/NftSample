@@ -38,28 +38,28 @@ namespace NftSample
         /// <param name="baseUri"></param>
         /// <param name="name"></param>
         /// <param name="symbol"></param>
-        /// <param name="abi">Solidity를 컴파일한 bytes</param>
+        /// <param name="bytecode">Solidity를 컴파일한 bytes</param>
         /// <returns>트랜잭션의 영수증</returns>
-        public async Task<TransactionReceipt> CreateNFTToken(string baseUri, string name, string symbol, string abi)
+        public async Task<TransactionReceipt> CreateNFTToken(string baseUri, string name, string symbol, string bytecode)
         {
             try
             {
+                var erc721PresetMinter = new ERC721PresetMinterPauserAutoIdDeployment(bytecode)
+                {
+                    //BaseURI = baseUri,
+                    Name = name,
+                    Symbol = symbol
+                };
 
+                var receipt = await ERC721PresetMinterPauserAutoIdService.DeployContractAndWaitForReceiptAsync(web3_, erc721PresetMinter);
+                service_ = new ERC721PresetMinterPauserAutoIdService(web3_, receipt.ContractAddress);   // service 할당
+                return receipt;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            var erc721PresetMinter = new ERC721PresetMinterPauserAutoIdDeployment(abi)
-            {
-                BaseURI = baseUri,
-                Name = name,
-                Symbol = symbol
-            };
-
-            var receipt = await ERC721PresetMinterPauserAutoIdService.DeployContractAndWaitForReceiptAsync(web3_, erc721PresetMinter);
-            service_ = new ERC721PresetMinterPauserAutoIdService(web3_, receipt.ContractAddress);   // service 할당
-            return receipt;
+            return null;
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace NftSample
         /// </summary>
         /// <param name="to">소유권을 가진 address</param>
         /// <returns>트랜잭션의 영수증</returns>
-        public async Task<TransactionReceipt> Mint(string to)
+        public async Task<TransactionReceipt> Mint(string to, string uri)
         {
             try
             {
@@ -81,6 +81,38 @@ namespace NftSample
             }
 
             return null;
+        }
+
+        public async Task<TransactionReceipt> SafeMint(string to, string uri)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(to))
+                    to = client_.AccountAddress;
+                return await service_.SafeMintRequestAndWaitForReceiptAsync(to, uri);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// 토큰의 소유자 자산을 확인
+        /// </summary>
+        public async Task<BigInteger> BalanceOf(string address)
+        {
+            try
+            {
+                return await service_.BalanceOfQueryAsync(address);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return 0;
         }
 
         /// <summary>
