@@ -12,8 +12,6 @@ using System.Threading;
 
 namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId.ContractDefinition
 {
-
-
     public partial class ERC721PresetMinterPauserAutoIdDeployment : ERC721PresetMinterPauserAutoIdDeploymentBase
     {
         public ERC721PresetMinterPauserAutoIdDeployment() : base(BYTECODE) { }
@@ -174,6 +172,26 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId.Contrac
         public virtual string To { get; set; }
         [Parameter("string", "uri", 2)]
         public virtual string TokenURI { get; set; }
+    }
+
+    public partial class SafeMintGuppyFunction : SafeMintGuppyFunctionBase { }
+
+    [Function("safeMintGuppy")]
+    public class SafeMintGuppyFunctionBase : FunctionMessage
+    {
+        [Parameter("address", "to", 1)]
+        public virtual string To { get; set; }
+        [Parameter("string", "guppyInfo", 2)]
+        public virtual string GuppyInfo { get; set; }
+    }
+
+    public partial class GuppyInfoFunction : GuppyInfoFunctionBase { }
+
+    [Function("guppyInfo", "string")]
+    public class GuppyInfoFunctionBase : FunctionMessage
+    {
+        [Parameter("uint256", "tokenId", 1)]
+        public virtual BigInteger TokenId { get; set; }
     }
 
     public partial class MintFunction : MintFunctionBase { }
@@ -649,8 +667,4 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId.Contrac
         [Parameter("uint256", "", 1)]
         public virtual BigInteger ReturnValue1 { get; set; }
     }
-
-
-
-
 }

@@ -99,6 +99,39 @@ namespace NftSample
             return null;
         }
 
+        public async Task<TransactionReceipt> SafeMintGuppy(string to, string guppyInfo)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(to))
+                    to = client_.AccountAddress;
+                return await service_.SafeMintGuppyRequestAndWaitForReceiptAsync(to, guppyInfo);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Token Id가 가리키는 GuppyInfo
+        /// </summary>
+        public async Task<string> GuppyInfo(BigInteger tokenId)
+        {
+            try
+            {
+                return await service_.GuppyInfoQueryAsync(tokenId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return "";
+        }
+
         /// <summary>
         /// 토큰의 소유자 자산을 확인
         /// </summary>
@@ -161,6 +194,38 @@ namespace NftSample
                 Console.WriteLine(ex.ToString());
             }
 
+            return "";
+        }
+
+        /// <summary>
+        /// 토큰 전송 권한을 부여
+        /// </summary>
+        public async Task<string> Approve(string toAddress, BigInteger tokenId)
+        {
+            try
+            {
+                return await service_.ApproveRequestAsync(toAddress, tokenId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return "";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public async Task<string> GetApproved(BigInteger tokenId)
+        {
+            try
+            {
+                return await service_.GetApprovedQueryAsync(tokenId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
             return "";
         }
     }

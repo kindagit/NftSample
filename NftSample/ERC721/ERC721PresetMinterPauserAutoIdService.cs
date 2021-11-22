@@ -303,6 +303,23 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.SendRequestAndWaitForReceiptAsync(safeMintFunction, cancellationToken);
         }
 
+        public Task<TransactionReceipt> SafeMintGuppyRequestAndWaitForReceiptAsync(string to, string guppyInfo, CancellationTokenSource cancellationToken = null)
+        {
+            var safeMintGuppyFunction = new SafeMintGuppyFunction()
+            {
+                To = to,
+                GuppyInfo = guppyInfo
+            };
+            return ContractHandler.SendRequestAndWaitForReceiptAsync(safeMintGuppyFunction, cancellationToken);
+        }
+
+        public Task<string> GuppyInfoQueryAsync(BigInteger tokenId, BlockParameter blockParameter = null)
+        {
+            var guppyInfoFunction = new GuppyInfoFunction();
+            guppyInfoFunction.TokenId = tokenId;
+            return ContractHandler.QueryAsync<GuppyInfoFunction, string>(guppyInfoFunction, blockParameter);
+        }
+
         public Task<string> NameQueryAsync(NameFunction nameFunction, BlockParameter blockParameter = null)
         {
             return ContractHandler.QueryAsync<NameFunction, string>(nameFunction, blockParameter);
@@ -564,12 +581,10 @@ namespace ERC721ContractLibrary.Contracts.ERC721PresetMinterPauserAutoId
             return ContractHandler.QueryAsync<TokenURIFunction, string>(tokenURIFunction, blockParameter);
         }
 
-
         public Task<string> TokenURIQueryAsync(BigInteger tokenId, BlockParameter blockParameter = null)
         {
             var tokenURIFunction = new TokenURIFunction();
             tokenURIFunction.TokenId = tokenId;
-
             return ContractHandler.QueryAsync<TokenURIFunction, string>(tokenURIFunction, blockParameter);
         }
 
