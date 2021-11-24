@@ -18,8 +18,8 @@ namespace NftSample
         static void ParserParams()
         {
             Console.WriteLine("Init Start");
-            string contractAddress = "0xa9f10692014b72e122b4daa2d3da461e366154af";
-            var nft = new NftLib(contractAddress);     // ropsten
+            string contractAddress = "0xa9f10692014b72e122b4daa2d3da461e366154af";       // ropsten
+            var nft = new NftLib(contractAddress);
             Console.WriteLine("Init Complete");
             while (isRun_)
             {
@@ -120,6 +120,15 @@ namespace NftSample
                         if (null != split && 2 <= split.Length) tokenId = BigInteger.Parse(split[1]);
                         var guppyinfo = await nft.GuppyInfo(tokenId);
                         Console.WriteLine($"GuppyInfo tokenId:{tokenId} guppyInfo:{guppyinfo}");
+                    }
+                    break;
+
+                case "balanceof":     // address의 잔고
+                    {
+                        string address = nft.AccountAddress;
+                        if (null != split && 2 <= split.Length) address = split[1];
+                        var value = await nft.BalanceOf(address);
+                        Console.WriteLine($"balanceof value:{value}");
                     }
                     break;
 

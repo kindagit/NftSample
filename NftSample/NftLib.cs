@@ -17,14 +17,15 @@ namespace NftSample
         EthereumClientIntegrationFixture client_;
         Web3 web3_;
         ERC721PresetMinterPauserAutoIdService service_;
+        public string AccountAddress => client_.AccountAddress;
 
-        public NftLib(string contractAddress = null, InfuraNetwork network = InfuraNetwork.Ropsten)
+        public NftLib(string contractAddress = null)
         {
             client_ = new EthereumClientIntegrationFixture();
-            if (network == InfuraNetwork.Mainnet)
+            if (client_.InfuraNetwork == InfuraNetwork.Mainnet)
                 web3_ = client_.GetWeb3();          // appsettings.json을 이용함
             else
-                web3_ = client_.GetInfuraWeb3(network);
+                web3_ = client_.GetInfuraWeb3(client_.InfuraNetwork);
 
             // contractAddress가 있다면 service 할당
             if (false == string.IsNullOrEmpty(contractAddress))
